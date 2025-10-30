@@ -48,21 +48,35 @@ main{
   font-weight:800;
 }
 
-.hero .subtitle{ font-size:22px; opacity:.9; }
+.hero .subtitle{ font-size:22px; opacity:.9; } /* I'm siv text*/
 
+/* Sidebar navigation */
+
+/* the nav block itself — add left padding so links aren't glued to the edge */
 .nav {
-  padding-left: 1rem;
+  padding-left: 2rem;        /* 1rem ≈ 16px */
 }
 
-.nav a,
-.nav a:visited{
-  color: var(--text);      /* green */
-  text-decoration: none;   /* remove underline */
+/* base style for all links inside .nav */
+.nav a {
+  color: var(--text);        /* use the site’s green variable */
+  text-decoration: none;     /* remove default underline */
+  font-weight: inherit;      /* keep same boldness as parent */
+  display: block;            /* each link on its own line */
+  margin-bottom: 1rem;     /* vertical spacing between items */
 }
 
-.nav a:hover{
-  opacity: .8;             /* subtle hover without underline */
+/* style for visited links (same as normal so color doesn’t change) */
+.nav a:visited {
+  color: var(--text);
 }
+
+/* subtle hover feedback without underline */
+.nav a:hover {
+  opacity: 0.8;              /* slightly lighter when hovered */
+  cursor: pointer;           /* show pointer hand */
+}
+
 
 
 /* ---- prompt label + capsule ---- */

@@ -57,12 +57,13 @@
     .copy{
       font-size:10px;
       color:#525E3D;
+      font-weight:400;
       opacity:.8;
       letter-spacing:.3px;
     }
 
     .prompt-label{
-      margin: 28px auto 6px;
+      margin: 48px auto 2px;
       text-align:center;
       opacity: .7;
       font-size: 16px;
@@ -79,6 +80,9 @@
       font-family:ui-monospace,monospace;
       font-size:15px;
       text-align:left;
+      box-shadow:
+        inset 0 1px 2px rgba(0,0,0,.06),   /* tiny inner bevel */
+        0 1px 2px rgba(0,0,0,.05);         /* soft outer lift */
     }
 
     .fake-input .label{opacity:.7;}
@@ -88,7 +92,8 @@
 <body>
   <aside>
     <nav class="nav">
-      <a href="cv.pdf">CV</a>
+      <a href="cv.html">CV</a>
+
     </nav>
     <div class="copy">© 2025 Siv Sørensen</div>
   </aside>

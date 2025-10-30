@@ -78,10 +78,9 @@ main{
 }
 
 
-
 /* ---- prompt label + capsule ---- */
 .prompt-label{
-  margin: 28px auto 6px;   /* top, left/right auto (center), bottom */
+  margin: 38px auto 10px;   /* top, left/right auto (center), bottom */
   text-align:center;
   opacity:.7;
   font-size:16px;
@@ -102,7 +101,7 @@ main{
 }
 
 /* ---- small footer ---- */
-.copy{
+.copyri{
   font-size:10px;
   color: var(--text);
   opacity:.8;

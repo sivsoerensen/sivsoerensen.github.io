@@ -50,6 +50,21 @@ main{
 
 .hero .subtitle{ font-size:22px; opacity:.9; }
 
+.nav {
+  padding-left: 1rem;
+}
+
+.nav a,
+.nav a:visited{
+  color: var(--text);      /* green */
+  text-decoration: none;   /* remove underline */
+}
+
+.nav a:hover{
+  opacity: .8;             /* subtle hover without underline */
+}
+
+
 /* ---- prompt label + capsule ---- */
 .prompt-label{
   margin: 28px auto 6px;   /* top, left/right auto (center), bottom */

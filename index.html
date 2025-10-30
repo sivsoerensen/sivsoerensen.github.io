@@ -26,6 +26,40 @@
       color: #525E3D; /* text color */
       font-size: 2rem;
     }
+
+    .hero{
+      margin:auto;
+      text-align:center;
+    }
+
+    .hero h1{
+      font-size:72px;
+      margin:0 0 4px;
+      letter-spacing:1px;
+      color:#525E3D; /* deep green accent */
+      font-weight:800;
+    }
+
+    .hero .subtitle{
+      font-size:22px;
+      opacity:.9;
+    }
+
+    .fake-input{
+      margin:36px auto 0;
+      width:min(620px,90%);
+      background:rgba(0,0,0,0.06);
+      border-radius:999px;
+      padding:12px 16px;
+      border:1px solid rgba(0,0,0,.12);
+      color:#525E3D;
+      font-family:ui-monospace,monospace;
+      font-size:15px;
+      text-align:left;
+    }
+
+    .fake-input .label{opacity:.7;}
+
   </style>
 </head>
 <body>
@@ -33,7 +67,15 @@
     <p>Sidebar</p>
   </aside>
   <main>
-    <p>Main content area</p>
+    <section class="hero">
+      <h1>Hi</h1>
+      <div class="subtitle">I'm Siv</div>
+
+      <div class="fake-input">
+        <span class="label">Get to know me through my artificial ego:</span><br/>
+        <strong>Ask SivGPT anything (coming soon)</strong>
+      </div>
+    </section>
   </main>
 </body>
 </html>

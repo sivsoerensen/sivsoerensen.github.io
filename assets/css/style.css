@@ -64,6 +64,7 @@ main{
   font-weight: inherit;      /* keep same boldness as parent */
   display: block;            /* each link on its own line */
   margin-bottom: 1rem;     /* vertical spacing between items */
+  margin-top: 2rem;
 }
 
 /* style for visited links (same as normal so color doesn’t change) */

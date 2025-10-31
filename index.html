@@ -8,26 +8,15 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
+<script>
+fetch("partials/sidebar.html")
+  .then(r => r.text())
+  .then(html => document.getElementById("sidebar").innerHTML = html);
+</script>
+
 <body>
-
-  <aside>
-    <nav class="nav">
-      <a href="cv.html">CV</a>
-
-      <a href="aboutme.html">About me</a>
-
-      <a href="www.linkedin.com/in/siv-soerensen" target="_blank" rel="noopener">LinkedIn ↗</a>
-
-      <a href="projects.html">Projects</a>
-
-      <a href="contact.html">Contact</a>
-
-    </nav>
-    <div class="copyri">© 2025 Siv Sørensen</div>
-  </aside>
-
+  <div id="sidebar"></div>
   <main>
-
     <section class="hero">
       <h1>Hi</h1>
       <div class="subtitle">I'm Siv</div>
@@ -36,9 +25,6 @@
       <div class="prompt-label">Get to know me through my artificial alter ego:</div>
       <div class="fake-input"><strong>Ask SivGPT anything (coming soon)</strong></div>
     </section>
-
   </main>
-
 </body>
-
 </html>

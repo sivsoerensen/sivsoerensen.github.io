@@ -4,7 +4,8 @@
   --bg:       #D6D0CA; /* right panel */
   --sidebar:  #B3ACA3; /* left panel */
   --text:     #525E3D; /* green text */
-  --hero-size: 72px;
+  --hero-size: 72px;    /* main hero text size */
+  --capsule-w: 800px; /* max width of fake input capsule */
 }
 
 /* ---- layout ---- */
@@ -89,7 +90,8 @@ main{
 
 .fake-input{
   margin:0 auto;
-  width:min(1100px,95%);
+  width: min(var(--capsule-w), 95%);
+  text-align: left;
   background:rgba(0,0,0,0.06);
   border-radius:999px;
   padding:12px 16px;
@@ -108,4 +110,5 @@ main{
   opacity:.8;
   letter-spacing:.3px;
   font-weight:400;
+  padding-left: 2rem;
 }

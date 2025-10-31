@@ -5,7 +5,7 @@
   --sidebar:  #B3ACA3; /* left panel */
   --text:     #525E3D; /* green text */
   --hero-size: 72px;    /* main hero text size */
-  --capsule-w: 800px; /* max width of fake input capsule */
+  --capsule-w: 1600px; /* max width of fake input capsule */
 }
 
 /* ---- layout ---- */

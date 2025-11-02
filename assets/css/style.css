@@ -1,6 +1,6 @@
 /* ---- global design toggles ---- */
 :root{
-  --sidebar-w: 300px;
+  --sidebar-w: 400px;
   --bg:       #D6D0CA; /* right panel */
   --sidebar:  #B3ACA3; /* left panel */
   --text:     #525E3D; /* green text */

@@ -18,7 +18,8 @@ body{
   color: var(--text);
 }
 
-aside{
+#sidebar {
+  grid-column: 1;                  /* stay in left column */
   background: var(--sidebar);
   padding: 2.5rem;
   color: var(--text);
@@ -28,11 +29,7 @@ aside{
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-}
-
-#sidebar {
-  display: contents;  /* makes the inserted <aside> behave as a 
-                          direct grid child taking up all page height*/
+  min-height:100vh;
 }
 
 

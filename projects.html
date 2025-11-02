@@ -6,12 +6,6 @@
   <title>Projects — Siv Sørensen</title>
   <link rel="stylesheet" href="assets/css/style.css?v=2">
 </head>
-<script>
-fetch("partials/sidebar.html")
-  .then(r => r.text())
-  .then(html => document.getElementById("sidebar").innerHTML = html);
-</script>
-
 <body>
   <div id="sidebar"></div>
 
@@ -19,5 +13,10 @@ fetch("partials/sidebar.html")
     <h2 style="margin:0; font-size:42px; letter-spacing:.5px;">SUBPAGE</h2>
     <!-- empty for now -->
   </main>
+  <script>
+  fetch("partials/sidebar.html")
+    .then(r => r.text())
+    .then(html => document.getElementById("sidebar").innerHTML = html);
+  </script>
 </body>
 </html>

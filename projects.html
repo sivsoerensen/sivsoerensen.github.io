@@ -9,14 +9,13 @@
 <body>
   <div id="sidebar"></div>
 
-  <main>
-    <h2 style="margin:0; font-size:42px; letter-spacing:.5px;">SUBPAGE</h2>
-    <!-- empty for now -->
-  </main>
-  <script>
-  fetch("partials/sidebar.html")
-    .then(r => r.text())
-    .then(html => document.getElementById("sidebar").innerHTML = html);
-  </script>
-</body>
-</html>
+  <main class="cv-page">
+    <h2 style="margin:0; font-size:42px; letter-spacing:.5px;">Projects</h2>
+    <a class="capsule-btn" href="assets/docs/PhD_dissertation_siv_2024.pdf" download>
+      Download PhD Dissertation (PDF)
+    </a>
+    <a class="capsule-btn" href="assets/docs/MasterThesis_S164339_S164374.pdf" download>
+      Download Master Thesis (PDF)
+    </a>
+
+

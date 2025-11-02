@@ -6,6 +6,12 @@
   <title>CV — Siv Sørensen</title>
   <link rel="stylesheet" href="assets/css/style.css?v=2">
 </head>
+<script>
+fetch("partials/sidebar.html")
+  .then(r => r.text())
+  .then(html => document.getElementById("sidebar").innerHTML = html);
+</script>
+
 <body>
   <div id="sidebar"></div>
 

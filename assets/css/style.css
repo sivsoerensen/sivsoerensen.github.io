@@ -5,7 +5,7 @@
   --sidebar:  #B3ACA3; /* left panel */
   --text:     #525E3D; /* green text */
   --hero-size: 72px;    /* main hero text size */
-  --capsule-w: 1000px; /* max width of fake input capsule */
+  --capsule-w: 1200px; /* max width of fake input capsule */
 }
 
 /* ---- layout ---- */
@@ -150,7 +150,7 @@ main{
 
 /* container for CV page images */
 .cv-pages {
-  width: min(var(--capsule-w), 95%);
+  width: min(var(--capsule-w), 80%);
   margin: 0 auto;
   background: transparent;
   display: flex;

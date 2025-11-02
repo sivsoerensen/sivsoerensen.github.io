@@ -148,6 +148,7 @@ main{
 .capsule-btn:hover{ opacity:.9; transform: translateY(-1px); }
 .capsule-btn:active{ transform: translateY(0); }
 
+/* container for CV page images */
 .cv-pages {
   width: min(var(--capsule-w), 95%);
   margin: 0 auto;
@@ -155,22 +156,19 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1em;                              /* visible bg between pages */
+  gap: 1em;
 }
 
-/* new wrapper with the actual shadow */
-.cv-pages-inner {
-  background: #fff;                      /* white for the page area only */
-  box-shadow: 0 4px 20px rgba(0,0,0,.18);
-  padding: 2rem;                         /* a bit of air inside shadow */
-}
-.cv-pages-inner img {
+/* shadow hugs images directly */
+.cv-pages img {
   display: block;
   width: 100%;
   height: auto;
+  box-shadow: 0 2px 14px rgba(0,0,0,.15);
 }
-.cv-pages-inner img + img {
-  margin-top: 1em;                       /* spacing between pages */
+
+.cv-pages img + img {
+  margin-top: 1em;   /* background gap between pages */
 }
 
 

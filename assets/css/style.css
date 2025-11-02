@@ -160,4 +160,8 @@ main{
   height:auto;
 }
 
+/* add spacing between the cv pages */
+.cv-pages img + img {
+  margin-top: 1em;   /* space between consecutive images */
+}
 

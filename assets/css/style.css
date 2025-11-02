@@ -118,3 +118,11 @@ main{
   font-weight:400;
   padding-left: 2rem;
 }
+
+/* ---- CV page layout ---- */
+.cv-page {
+  flex-direction: column;     /* stack title, button, CV vertically */
+  text-align: center;         /* center text like the other pages */
+  gap: 2rem;                  /* space between items */
+  padding: 4rem 0;            /* breathing room top/bottom */
+}

@@ -151,22 +151,26 @@ main{
 .cv-pages {
   width: min(var(--capsule-w), 95%);
   margin: 0 auto;
-  background: transparent;                 /* no white background */
+  background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1em;                                /* space between pages (shows bg color) */
-  padding: 2rem;                           /* breathing room inside shadow */
-  box-shadow: 0 4px 20px rgba(0,0,0,.18);  /* shadow around all sides */
+  gap: 1em;                              /* visible bg between pages */
 }
-.cv-pages img {
+
+/* new wrapper with the actual shadow */
+.cv-pages-inner {
+  background: #fff;                      /* white for the page area only */
+  box-shadow: 0 4px 20px rgba(0,0,0,.18);
+  padding: 2rem;                         /* a bit of air inside shadow */
+}
+.cv-pages-inner img {
   display: block;
   width: 100%;
   height: auto;
 }
-
-/* add spacing between the cv pages */
-.cv-pages img + img {
-  margin-top: 1em;   /* space between consecutive images */
+.cv-pages-inner img + img {
+  margin-top: 1em;                       /* spacing between pages */
 }
+
 

@@ -126,8 +126,8 @@ main{
 .cv-page {
   flex-direction: column;     /* stack title, button, CV vertically */
   text-align: center;         /* center text like the other pages */
-  gap: 2rem;                  /* space between items */
-  padding: 4rem 0;            /* breathing room top/bottom */
+  gap: 2.5rem;                  /* space between items */
+  padding: 8rem 0;            /* breathing room top/bottom */
 }
 
 /* capsule-style button (matches your fake-input look) */
@@ -152,7 +152,7 @@ main{
   width: min(var(--capsule-w), 80%);
   margin: 0 auto;
   box-shadow: 0 4px 20px rgba(0,0,0,.18);
-  background: #fff; /* white bg for CV images if transparent*/
+  background: var(--bg); /* white bg for CV images if transparent*/
 }
 .cv-pages img{
   display:block;

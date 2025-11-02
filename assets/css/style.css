@@ -30,6 +30,12 @@ aside{
   justify-content:space-between;
 }
 
+#sidebar {
+  display: contents;  /* makes the inserted <aside> behave as a 
+                          direct grid child taking up all page height*/
+}
+
+
 main{
   background: var(--bg);
   display:flex;

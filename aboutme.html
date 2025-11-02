@@ -18,5 +18,18 @@
     .then(r => r.text())
     .then(html => document.getElementById("sidebar").innerHTML = html);
   </script>
+<body>
+  <div id="sidebar"></div>
+
+  <main class="template-page">
+    <h2 style="margin:0; font-size:42px; letter-spacing:.5px;">About me</h2>
+    
+
+  </main>
+  <script>
+  fetch("partials/sidebar.html")
+    .then(r => r.text())
+    .then(html => document.getElementById("sidebar").innerHTML = html);
+  </script>
 </body>
 </html>

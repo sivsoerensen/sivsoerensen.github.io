@@ -60,6 +60,8 @@ main{
 
 .hero .subtitle{ font-size:22px; opacity:.9; } /* I'm siv text*/
 
+.hero .body{ font-size:16px; opacity:1; } /* main body textt*/
+
 /* Sidebar navigation */
 
 /* the nav block itself — add left padding so links aren't glued to the edge */
@@ -123,7 +125,7 @@ main{
 }
 
 /* --------------------- CV page layout --------------------------- */
-.cv-page {
+.template-page {
   flex-direction: column;     /* stack title, button, CV vertically */
   text-align: center;         /* center text like the other pages */
   gap: 2.5rem;                  /* space between items */
@@ -149,7 +151,7 @@ main{
 .capsule-btn:active{ transform: translateY(0); }
 
 /* container for CV page images */
-.cv-pages {
+.template-pages {
   width: min(var(--capsule-w), 80%);
   margin: 0 auto;
   background: transparent;
@@ -160,14 +162,14 @@ main{
 }
 
 /* shadow hugs images directly */
-.cv-pages img {
+.template-pages img {
   display: block;
   width: 100%;
   height: auto;
   box-shadow: 0 2px 14px rgba(0,0,0,.15);
 }
 
-.cv-pages img + img {
+.template-pages img + img {
   margin-top: 1em;   /* background gap between pages */
 }
 

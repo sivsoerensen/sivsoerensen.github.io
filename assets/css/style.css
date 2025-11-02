@@ -122,10 +122,29 @@ main{
   padding-left: 2rem;
 }
 
-/* ---- CV page layout ---- */
+/* --------------------- CV page layout --------------------------- */
 .cv-page {
   flex-direction: column;     /* stack title, button, CV vertically */
   text-align: center;         /* center text like the other pages */
   gap: 2rem;                  /* space between items */
   padding: 4rem 0;            /* breathing room top/bottom */
 }
+
+/* capsule-style button (matches your fake-input look) */
+.capsule-btn{
+  display:inline-flex;               /* size to content + nice hover area */
+  align-items:center;
+  gap:.5rem;
+  padding:12px 20px;                 /* capsule padding */
+  border-radius:999px;               /* full pill */
+  background:rgba(0,0,0,.06);        /* same tint as .fake-input */
+  border:1px solid rgba(0,0,0,.12);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.05);
+  color: var(--text);
+  text-decoration:none;
+  font-size:18px;
+  font-weight:600;
+}
+.capsule-btn:hover{ opacity:.9; transform: translateY(-1px); }
+.capsule-btn:active{ transform: translateY(0); }
+

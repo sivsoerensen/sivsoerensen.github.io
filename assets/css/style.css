@@ -132,6 +132,8 @@ main{
   padding: 8rem 0;            /* breathing room top/bottom */
 }
 
+.template-page .body{ font-size:16px; opacity:1; } /* main body textt*/
+
 /* capsule-style button (matches your fake-input look) */
 .capsule-btn{
   display:inline-flex;               /* size to content + nice hover area */

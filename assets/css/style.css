@@ -5,7 +5,7 @@
   --sidebar:  #B3ACA3; /* left panel */
   --text:     #525E3D; /* green text */
   --hero-size: 72px;    /* main hero text size */
-  --capsule-w: 1200px; /* max width of fake input capsule */
+  --capsule-w: 1000px; /* max width of fake input capsule */
 }
 
 /* ---- layout ---- */
@@ -192,7 +192,7 @@ main{
   border-radius: 28px;                 /* boxy—not full pill */
   padding: 18px 22px;
   font: 16px/1.5 system-ui, sans-serif;
-  color: #222;
+  color: var(--text);
   box-shadow: 0 2px 14px rgba(0,0,0,.15);
   resize: vertical;
   outline: none;
@@ -219,7 +219,7 @@ main{
   border-radius: 24px; /* softer than capsule, still structured */
   padding: 14px 18px;
   font: 16px/1.5 system-ui, sans-serif;
-  color: #222;
+  color: var(--text);
   box-shadow: 0 2px 10px rgba(0,0,0,.1);
   outline: none;
   transition: box-shadow .15s ease;

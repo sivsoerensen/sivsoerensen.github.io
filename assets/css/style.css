@@ -153,7 +153,7 @@ main{
 .capsule-btn:active{ transform: translateY(0); }
 
 /* container for CV page images */
-.template-pages {
+.cv-preview {
   width: min(var(--capsule-w), 80%);
   margin: 0 auto;
   background: transparent;
@@ -164,14 +164,14 @@ main{
 }
 
 /* shadow hugs images directly */
-.template-pages img {
+.cv-preview img {
   display: block;
   width: 100%;
   height: auto;
   box-shadow: 0 2px 14px rgba(0,0,0,.15);
 }
 
-.template-pages img + img {
+.cv-preview img + img {
   margin-top: 1em;   /* background gap between pages */
 }
 

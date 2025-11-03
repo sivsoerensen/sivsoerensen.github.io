@@ -9,67 +9,68 @@
 <body>
   <div id="sidebar"></div>
 
-  <main>
-    <h2 style="margin:0; font-size:42px; letter-spacing:.5px;">SUBPAGE</h2>
-    <!-- empty for now -->
-  </main>
-  <script>
-  fetch("partials/sidebar.html")
-    .then(r => r.text())
-    .then(html => document.getElementById("sidebar").innerHTML = html);
-  </script>
-<body>
-  <div id="sidebar"></div>
-
   <main class="template-page">
     <h2 style="margin:0; font-size:42px; letter-spacing:.5px;">About me</h2>
-    <div class="body">
-      <p>I'm Siv&#8212;originally from a small town on the west coast of Denmark. Since 
-        2016 I've been living in Copenhagen where I studied to become an Engineer at The 
-        Technical University of Denmark (DTU). Fast forward eight years&#8212;a degree and a PhD 
-        later&#8212;and I'm still here.
-      </p>
+    <div class="body" style="max-width:800px; margin:0 auto; text-align:left;">
       <p>
-        I enjoy living with my boyfriend north of Copenhagen surrounded by forest and the sea, 
-        where meeting my daily step count or going for a dip is easy. Nature and health means
-        a lot to me and I try to spend some time outdoors every day and enjoy cooking (and eating!) 
-        homemade meals from fresh ingredients. Vegetables and seafood are my favorites
-        and I have enjoyed a predominantly pescetarian diet for many years now.
+        I'm Siv — originally from a small town on the west coast of Denmark. Since 
+        2016 I've been living in Copenhagen, where I studied to become an engineer at the 
+        Technical University of Denmark (DTU). Fast forward eight years — a degree and a PhD 
+        later — and I'm still here.
       </p>
+
       <p>
-        Breakfast is my 'bread and butter' (quite literally) and I love baking my own sourdough&#8212;
-        or visit one of my favorite bakeries on the weekend. Matcha and Coffee are also big favorites! I am
-        however very bad with caffeine and hope one day to see decaf coffee being as common in cafes in
-        northen Europe as it is in the south.
+        I live with my boyfriend north of Copenhagen, surrounded by forest and sea, 
+        where meeting my daily step count or going for a dip is easy. Nature and health mean
+        a lot to me, and I try to spend time outdoors every day. I enjoy cooking (and eating!) 
+        homemade meals from fresh ingredients. Vegetables and seafood are my favorites,
+        and I’ve followed a predominantly pescetarian diet for many years now.
       </p>
+
       <p>
-        I've always been a very creative and curious person and I've always obsessively
-        enjoyed learning and making things; LEGOs as a kid, sewing without patterns as a teen
-        (very frustrating process, why I do it to myself I don't know), knitting, drawing, and 
-        as of recently writing. I think that's why I wanted to become an engineer&#8212;to be 
-        able to understand how things work, recoginze patterns and apply that knowledge in new
-        and creative ways.
+        Breakfast is my “bread and butter” (quite literally), and I love baking my own sourdough —
+        or visiting one of my favorite bakeries on the weekend. Matcha and coffee are also big favorites! 
+        However, I’m terrible with caffeine and hope one day to see decaf coffee become as common in 
+        cafés in Northern Europe as it is in the South.
       </p>
+
       <p>
-        Reading has been an escape and addiction of mine since I churned through all of the
-        Harry Potter books in the the spring of fourth grade. Since then I've always come
-        back to reading even though I at times have had to force myself on a detox to stay 
-        focused on studying for exams or other much less thrilling tasks. 
+        I've always been a creative and curious person and have obsessively 
+        enjoyed learning and making things — LEGOs as a kid, sewing without patterns as a teen 
+        (a very frustrating process — why I do it to myself, I don’t know), knitting, drawing, and 
+        more recently, writing. I think that’s why I wanted to become an engineer — to understand 
+        how things work, recognize patterns, and apply that knowledge in new and creative ways.
       </p>
+
       <p>
-        I started my career thinking that Mechanical Engineering was the perfect balance
-        between math and creating things, but quickly realized that math and logic is what
-        I am actually passionate about&#8212;also my Physics inituion (or rather 
-        lack thereof) is simply not helping. I therefore purused a Master's degree in 
-        Mathematical Computation and Modelling where I focused mainly on Operations Research
-        (optimization), algorithms, data structures, and ML.
+        Reading has been both an escape and an addiction since I churned through all the
+        Harry Potter books in the spring of fourth grade. Since then, I’ve always come
+        back to reading, even if I’ve had to go on the occasional “detox” to stay 
+        focused on studying for exams or other, much less thrilling tasks.
       </p>
+
       <p>
-        Finding my 'niche' quite late in my studies I felt that I wasn't quite done learning yet
-        and decided to continue on to a PhD in Operations Research. 
+        I begun my studies thinking mechanical engineering was the perfect balance
+        between math and creating things, but quickly realized that math and logic were what
+        I was truly passionate about — and my physics intuition (or lack thereof) wasn’t exactly helping either.
+        I therefore pursued a Master’s degree in 
+        Mathematical Modelling and Computation, where I focused mainly on operations research
+        (optimization), algorithms, data structures, and machine learning.
       </p>
+
+      <p>
+        Finding my niche quite late in my studies, I felt I wasn’t quite done learning yet
+        and decided to continue on to a PhD in Operations Research. I had a wonderful
+        supervisor and learned a lot (perhaps too much about grit and perseverance), but my
+        PhD journey really confirmed for me that I’m better suited to a collaborative 
+        environment — a larger team with more variety in people and ideas to bounce off.
+        I also didn’t get quite the same kick out of getting a paper published as I do 
+        from working on a real-world application with tangible results that make a 
+        meaningful difference.
+      </p>  
     </div>
   </main>
+
   <script>
   fetch("partials/sidebar.html")
     .then(r => r.text())

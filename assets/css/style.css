@@ -247,7 +247,7 @@ main{
   opacity: .95;
   text-align: center;
 }
-.status-note.ok { color: #2e6a3e; }
+.status-note.ok { color: var(--text); }
 .status-note.err { color: #7a2c2c; }
 
 

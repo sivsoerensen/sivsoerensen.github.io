@@ -175,4 +175,80 @@ main{
   margin-top: 1em;   /* background gap between pages */
 }
 
+/*__________________ Contact form layout________________________ */
+.contact-form{
+  width: min(var(--capsule-w), 90%);
+  margin: 0 auto;
+  display: grid;
+  gap: 1.2rem;
+  justify-items: center;
+}
+
+/* Boxy, capsule-inspired text area */
+.message-box{
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 28px;                 /* boxy—not full pill */
+  padding: 18px 22px;
+  font: 16px/1.5 system-ui, sans-serif;
+  color: #222;
+  box-shadow: 0 2px 14px rgba(0,0,0,.15);
+  resize: vertical;
+  outline: none;
+}
+.message-box:focus{
+  box-shadow: 0 4px 18px rgba(0,0,0,.18);
+}
+
+/* Status feedback under the button */
+.status-note{
+  min-height: 1.2em;                  /* reserve space to avoid layout jump */
+  font-size: 15px;
+  opacity: .95;
+}
+.status-note.ok{ color: #2e6a3e; }    /* your green-ish theme */
+.status-note.err{ color: #7a2c2c; }
+
+/* Inputs and textarea share the same visual base */
+.input-box,
+.message-box {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 24px; /* softer than capsule, still structured */
+  padding: 14px 18px;
+  font: 16px/1.5 system-ui, sans-serif;
+  color: #222;
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
+  outline: none;
+  transition: box-shadow .15s ease;
+}
+
+.input-box:focus,
+.message-box:focus {
+  box-shadow: 0 3px 14px rgba(0,0,0,.15);
+}
+
+/* Form layout */
+.contact-form {
+  width: min(var(--capsule-w), 85%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Status message (feedback below button) */
+.status-note {
+  min-height: 1.2em;
+  font-size: 15px;
+  opacity: .95;
+  text-align: center;
+}
+.status-note.ok { color: #2e6a3e; }
+.status-note.err { color: #7a2c2c; }
+
+
 

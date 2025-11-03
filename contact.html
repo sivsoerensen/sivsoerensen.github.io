@@ -9,14 +9,56 @@
 <body>
   <div id="sidebar"></div>
 
-  <main>
-    <h2 style="margin:0; font-size:42px; letter-spacing:.5px;">SUBPAGE</h2>
-    <!-- empty for now -->
+  <main class="template-page">
+    <h2 style="margin:0; font-size:42px; letter-spacing:.5px;">Contact</h2>
+    <div class="subtitle" style="font-size:28px; opacity:.9;">Let’s get in touch!</div>
+
+    <form id="contact-form" class="contact-form">
+      <input type="text" name="name" class="input-box" placeholder="Your name" required>
+      <input type="email" name="email" class="input-box" placeholder="Your email" required>
+      <textarea name="message" class="message-box" rows="8" placeholder="Write your message here…" required></textarea>
+
+      <button type="submit" class="capsule-btn">Send</button>
+
+      <div id="form-status" class="status-note" aria-live="polite"></div>
+    </form>
   </main>
+
   <script>
-  fetch("partials/sidebar.html")
-    .then(r => r.text())
-    .then(html => document.getElementById("sidebar").innerHTML = html);
+    // Load sidebar
+    fetch("partials/sidebar.html")
+      .then(r => r.text())
+      .then(html => document.getElementById("sidebar").innerHTML = html);
+
+    // Handle form submission
+    const FORM_ENDPOINT = "https://formspree.io/f/xzzklvzd";
+    const form = document.getElementById("contact-form");
+    const statusEl = document.getElementById("form-status");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          statusEl.textContent = "Message sent — I’ll get back to you soon.";
+          statusEl.className = "status-note ok";
+          // form.reset(); // clears fields for another message
+        } else {
+          statusEl.textContent = "Hmm, something went wrong. Please try again.";
+          statusEl.className = "status-note err";
+        }
+      } catch {
+        statusEl.textContent = "Network error. Please try again.";
+        statusEl.className = "status-note err";
+      }
+    });
   </script>
 </body>
 </html>

@@ -134,6 +134,35 @@ main{
 
 .template-page .body{ font-size:16px; opacity:1; } /* main body textt*/
 
+.template-page .body{
+  /* cap at 800px, but also ≤ 80% of (viewport - sidebar) */
+  width: min(800px, calc((100vw - var(--sidebar-w)) * 0.8));
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1.65;
+  padding-inline: 1rem; /* small side padding on tiny screens */
+  hyphens: auto;
+  text-wrap: pretty;
+}
+
+/* default: no vertical gap, indent each paragraph */
+.template-page .body p{
+  margin: 0;
+  text-indent: 1.25em;
+}
+
+/* don’t indent the very first paragraph  */
+.template-page .body p:first-child{
+  text-indent: 0;
+}
+
+
+/* spaced paragraphs: add top margin, no indent */
+.template-page .body p.spaced{
+  margin-top: 1.2rem;
+  text-indent: 0; /* new section starts flush */
+}
+
 /* capsule-style button (matches your fake-input look) */
 .capsule-btn{
   display:inline-flex;               /* size to content + nice hover area */
@@ -176,13 +205,6 @@ main{
 }
 
 /*__________________ Contact form layout________________________ */
-.contact-form{
-  width: min(var(--capsule-w), 90%);
-  margin: 0 auto;
-  display: grid;
-  gap: 1.2rem;
-  justify-items: center;
-}
 
 /* Boxy, capsule-inspired text area */
 .message-box{
@@ -207,8 +229,7 @@ main{
   font-size: 15px;
   opacity: .95;
 }
-.status-note.ok{ color: #2e6a3e; }    /* your green-ish theme */
-.status-note.err{ color: #7a2c2c; }
+
 
 /* Inputs and textarea share the same visual base */
 .input-box,

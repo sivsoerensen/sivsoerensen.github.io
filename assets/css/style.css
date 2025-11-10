@@ -265,20 +265,28 @@ main {
 .status-note.err { color: #7a2c2c; }
 
 /*==============================================================*/
-/* 9. RESPONSIVE MOBILE MENU 
+/* 9. RESPONSIVE MOBILE MENU + LAYOUT FIXES
 /*--------------------------------------------------------------*/
-/* Adds a hamburger menu button and makes sidebar toggleable
-   on small screens (below 900px width).
----------------------------------------------------------------*/
+/* Adds a hamburger menu and fixes layout for small screens
+   (below ~1024px width = 64em). Also widens About text properly. */
+/*==============================================================*/
 
 #menu-toggle {
   display: none;
-  position: fixed; top: 1rem; left: 1rem;
-  background: none; border: none; color: var(--text);
-  font-size: 32px; z-index: 20; cursor: pointer;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 32px;
+  z-index: 20;
+  cursor: pointer;
 }
 
 @media (max-width: 64em) {
+
+  /* ----- Mobile menu behavior ----- */
   body { grid-template-columns: 1fr; }
 
   #sidebar {
@@ -288,13 +296,28 @@ main {
     background: var(--sidebar);
     z-index: 10;
     flex-direction: column;
-    justify-content: flex-start; 
-    padding: 5rem 2.5rem 2.5rem;  /* ⬅ adds top padding to push menu down */
+    justify-content: flex-start;
+    padding: 5rem 2.5rem 2.5rem;  /* pushes menu down a bit */
   }
 
   #sidebar.active { display: flex; }
 
   #menu-toggle { display: block; }
 
-  .nav a { font-size: 24px; margin-top: 1.5rem; }
+  .nav a {
+    font-size: 24px;
+    margin-top: 1.5rem;
+  }
+
+  /* ----- About page layout fix ----- */
+  .template-page .body {
+    width: min(700px, 90vw);   /* ignore sidebar, use most of screen */
+    text-align: left;
+  }
 }
+
+/* Slight tweak for very small phones */
+@media (max-width: 30em) {
+  .template-page .body p { text-indent: 0.9em; }
+}
+

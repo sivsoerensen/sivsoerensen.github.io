@@ -10,6 +10,8 @@
 
 <body>
   <div id="sidebar"></div>
+  <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+
   <main>
     <section class="hero">
       <h1>Hi</h1>
@@ -20,10 +22,6 @@
       <div class="fake-input"><strong>Ask SivGPT anything (coming soon)</strong></div>
     </section>
   </main>
-  <script>
-  fetch("partials/sidebar.html")
-    .then(r => r.text())
-    .then(html => document.getElementById("sidebar").innerHTML = html);
-  </script>
+  <script src="assets/js/site.js" defer></script>
 </body>
 </html>

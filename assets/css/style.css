@@ -10,8 +10,9 @@
   6. TEMPLATE PAGE ......................... Shared layout for all subpages
   7. CV PREVIEW ............................ Image-based CV display
   8. CONTACT FORM .......................... Contact inputs, textarea, status
+  9. RESPONSIVE MOBILE MENU ................ Mobile menu toggle and sidebar
 
-  
+
 *//*==============================================================*/
 /*                         GLOBAL DESIGN
 /*==============================================================*/
@@ -262,3 +263,36 @@ main {
 }
 .status-note.ok  { color: var(--text); }
 .status-note.err { color: #7a2c2c; }
+
+/*==============================================================*/
+/* 9. RESPONSIVE MOBILE MENU 
+/*--------------------------------------------------------------*/
+/* Adds a hamburger menu button and makes sidebar toggleable
+   on small screens (below 900px width).
+---------------------------------------------------------------*/
+
+#menu-toggle {
+  display: none;
+  position: fixed; top: 1rem; left: 1rem;
+  background: none; border: none; color: var(--text);
+  font-size: 32px; z-index: 20; cursor: pointer;
+}
+
+@media (max-width: 64em) {
+  body { grid-template-columns: 1fr; }
+
+  #sidebar {
+    display: none;
+    position: fixed; inset: 0;
+    background: var(--sidebar); z-index: 10;
+    justify-content: center; align-items: center;
+  }
+  #sidebar.active {
+    display: flex; flex-direction: column; text-align: center;
+  }
+
+  #menu-toggle { display: block; }
+
+  .nav a { font-size: 28px; margin: 1rem 0; }
+}
+

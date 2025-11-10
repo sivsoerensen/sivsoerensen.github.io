@@ -8,6 +8,7 @@
 </head>
 <body>
   <div id="sidebar"></div>
+  <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
 
   <main class="template-page">
     <h2 style="margin:0; font-size:42px; letter-spacing:.5px;">About me</h2>
@@ -72,10 +73,7 @@
     </div>
   </main>
 
-  <script>
-  fetch("partials/sidebar.html")
-    .then(r => r.text())
-    .then(html => document.getElementById("sidebar").innerHTML = html);
-  </script>
+  <script src="assets/js/site.js" defer></script>
+
 </body>
 </html>

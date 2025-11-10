@@ -283,16 +283,18 @@ main {
 
   #sidebar {
     display: none;
-    position: fixed; inset: 0;
-    background: var(--sidebar); z-index: 10;
-    justify-content: center; align-items: center;
+    position: fixed;
+    inset: 0;
+    background: var(--sidebar);
+    z-index: 10;
+    flex-direction: column;
+    justify-content: flex-start; 
+    padding: 5rem 2.5rem 2.5rem;  /* ⬅ adds top padding to push menu down */
   }
-  #sidebar.active {
-    display: flex; flex-direction: column; text-align: center;
-  }
+
+  #sidebar.active { display: flex; }
 
   #menu-toggle { display: block; }
 
-  .nav a { font-size: 28px; margin: 1rem 0; }
+  .nav a { font-size: 24px; margin-top: 1.5rem; }
 }
-

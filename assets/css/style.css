@@ -1,35 +1,62 @@
-/* ---- global design toggles ---- */
-:root{
+/*==============================================================*/
+/*                         STYLE INDEX
+/*==============================================================*/
+/*
+  1. GLOBAL DESIGN .......................... Variables (colors, spacing, fonts)
+  2. LAYOUT ................................ Grid structure, sidebar, main area
+  3. HERO SECTION .......................... Homepage hero title/subtitle
+  4. SIDEBAR NAVIGATION .................... Navigation and footer styles
+  5. GENERIC CAPSULE & INPUT STYLES ........ Buttons, fake input blocks
+  6. TEMPLATE PAGE ......................... Shared layout for all subpages
+  7. CV PREVIEW ............................ Image-based CV display
+  8. CONTACT FORM .......................... Contact inputs, textarea, status
+
+  
+*//*==============================================================*/
+/*                         GLOBAL DESIGN
+/*==============================================================*/
+/* Defines global variables for color palette, sizing, and layout.
+   Used consistently across all pages to maintain a coherent style.
+---------------------------------------------------------------*/
+:root {
   --sidebar-w: 400px;
-  --bg:       #D6D0CA; /* right panel */
-  --sidebar:  #B3ACA3; /* left panel */
-  --text:     #525E3D; /* green text */
-  --hero-size: 72px;    /* main hero text size */
-  --capsule-w: 1000px; /* max width of fake input capsule */
+  --bg:        #D6D0CA;  /* main (right) background */
+  --sidebar:   #B3ACA3;  /* sidebar background */
+  --text:      #525E3D;  /* primary green text */
+  --hero-size: 72px;     /* large hero headline size */
+  --capsule-w: 1000px;   /* maximum capsule or content width */
 }
 
-/* ---- layout ---- */
-body{
-  margin:0;
-  display:grid;
+/*==============================================================*/
+/*                           LAYOUT
+/*==============================================================*/
+/* Defines the overall grid and page structure:
+   Sidebar on the left, main content on the right.
+---------------------------------------------------------------*/
+body {
+  margin: 0;
+  display: grid;
   grid-template-columns: var(--sidebar-w) 1fr;
-  height:100vh;
+  height: 100vh;
   font-family: system-ui, sans-serif;
   color: var(--text);
 }
 
+/*-------------------------------------------*/
+/* Sidebar — static navigation area on left  */
+/*-------------------------------------------*/
 #sidebar {
-  grid-column: 1;                  /* stay in left column */
+  grid-column: 1;
   background: var(--sidebar);
   padding: 2.5rem;
   color: var(--text);
   font-weight: 700;
   font-size: 24px;
   letter-spacing: .5px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  min-height:100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 #sidebar > aside {
@@ -39,219 +66,164 @@ body{
   min-height: 100%;
 }
 
-main{
+/*-------------------------------------------*/
+/* Main area (right-hand panel)              */
+/*-------------------------------------------*/
+main {
   background: var(--bg);
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
 }
 
-/* ---- hero ---- */
-.hero{ margin:auto; text-align:center; }
+/*==============================================================*/
+/*                           HERO SECTION
+/*==============================================================*/
+/* Used on homepage for large introductory title and subtitle.
+---------------------------------------------------------------*/
+.hero { margin: auto; text-align: center; }
 
-.hero h1{
+.hero h1 {  /*Hi*/
   font-size: var(--hero-size);
-  margin:0 0 4px;
-  letter-spacing:1px;
+  margin: 0 0 4px;
+  letter-spacing: 1px;
   color: var(--text);
-  font-weight:800;
+  font-weight: 800;
 }
 
-.hero .subtitle{ font-size:22px; opacity:.9; } /* I'm siv text*/
+.hero .subtitle { font-size: 22px; opacity: .9; } /*I'm Siv*/
+.hero .body { font-size: 16px; opacity: 1; }
 
-.hero .body{ font-size:16px; opacity:1; } /* main body textt*/
+/*==============================================================*/
+/*                      SIDEBAR NAVIGATION
+/*==============================================================*/
+.nav { padding-left: 2rem; }
 
-/* Sidebar navigation */
-
-/* the nav block itself — add left padding so links aren't glued to the edge */
-.nav {
-  padding-left: 2rem;        /* 1rem ≈ 16px */
-}
-
-/* base style for all links inside .nav */
 .nav a {
-  color: var(--text);        /* use the site’s green variable */
-  text-decoration: none;     /* remove default underline */
-  font-weight: inherit;      /* keep same boldness as parent */
-  display: block;            /* each link on its own line */
-  margin-bottom: 1rem;     /* vertical spacing between items */
-  margin-top: 2rem;
-}
-
-/* style for visited links (same as normal so color doesn’t change) */
-.nav a:visited {
   color: var(--text);
+  text-decoration: none;
+  font-weight: inherit;
+  display: block;
+  margin: 2rem 0 1rem;
+}
+.nav a:visited { color: var(--text); }
+.nav a:hover { opacity: 0.8; cursor: pointer; }
+
+/* Footer text in sidebar */
+.copyri {
+  font-size: 10px;
+  color: var(--text);
+  opacity: .8;
+  letter-spacing: .3px;
+  font-weight: 400;
+  padding-left: 2rem;
 }
 
-/* subtle hover feedback without underline */
-.nav a:hover {
-  opacity: 0.8;              /* slightly lighter when hovered */
-  cursor: pointer;           /* show pointer hand */
-}
-
-
-/* ---- prompt label + capsule ---- */
-.prompt-label{
-  margin: 38px auto 10px;   /* top, left/right auto (center), bottom */
-  text-align:center;
-  opacity:.7;
-  font-size:16px;
-}
-
-.fake-input{
-  margin:0 auto;
-  width: min(var(--capsule-w), 95%);
-  text-align: left;
-  background:rgba(0,0,0,0.06);
-  border-radius:999px;
-  padding:12px 16px;
-  border:1px solid rgba(0,0,0,.12);
-  font-family: ui-monospace, monospace;
-  font-size:15px;
-  text-align:left;
+/*==============================================================*/
+/*                 GENERIC CAPSULE / INPUT STYLE
+/*==============================================================*/
+/* Used for capsule-like buttons and fake input lookalikes.
+---------------------------------------------------------------*/
+.fake-input,
+.capsule-btn {
+  background: rgba(0,0,0,.06);
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 999px;
   box-shadow: inset 0 1px 2px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.05);
   color: var(--text);
 }
 
-/* ---- small footer ---- */
-.copyri{
-  font-size:10px;
-  color: var(--text);
-  opacity:.8;
-  letter-spacing:.3px;
-  font-weight:400;
-  padding-left: 2rem;
+/* Fake input label for visual placeholder use */
+.prompt-label {
+  margin: 38px auto 10px;
+  text-align: center;
+  opacity: .7;
+  font-size: 16px;
 }
 
-/* --------------------- CV page layout --------------------------- */
+/* Fake capsule (read-only input look) */
+.fake-input {
+  margin: 0 auto;
+  width: min(var(--capsule-w), 95%);
+  text-align: left;
+  border-radius: 999px;
+  padding: 12px 16px;
+  font-family: ui-monospace, monospace;
+  font-size: 15px;
+}
+
+/* Capsule-style button for download button e.g. */
+.capsule-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .1s ease, opacity .1s ease;
+}
+.capsule-btn:hover { opacity: .9; transform: translateY(-1px); }
+.capsule-btn:active { transform: translateY(0); }
+
+/*==============================================================*/
+/*                       TEMPLATE PAGE
+/*==============================================================*/
+/* Generic layout used by subpages (About, CV, Contact).
+   Centers the main content and adds top/bottom spacing.
+---------------------------------------------------------------*/
 .template-page {
-  flex-direction: column;     /* stack title, button, CV vertically */
-  text-align: center;         /* center text like the other pages */
-  gap: 2.5rem;                  /* space between items */
-  padding: 8rem 0;            /* breathing room top/bottom */
+  flex-direction: column;
+  text-align: center;
+  gap: 2.5rem;
+  padding: 8rem 0;
 }
 
-.template-page .body{ font-size:16px; opacity:1; } /* main body textt*/
-
-.template-page .body{
-  /* cap at 800px, but also ≤ 80% of (viewport - sidebar) */
+/* Text body container (used e.g. in About page) */
+.template-page .body {
   width: min(800px, calc((100vw - var(--sidebar-w)) * 0.8));
   margin: 0 auto;
   text-align: left;
   line-height: 1.65;
-  padding-inline: 1rem; /* small side padding on tiny screens */
+  font-size: 16px;
+  padding-inline: 1rem;
   hyphens: auto;
   text-wrap: pretty;
+  text-align: justify;
 }
 
-/* default: no vertical gap, indent each paragraph */
-.template-page .body p{
-  margin: 0;
-  text-indent: 1.25em;
-}
+/* Paragraph rhythm for book-style flow */
+.template-page .body p { margin: 0; text-indent: 1.25em; }
+.template-page .body p:first-child { text-indent: 0; }
+.template-page .body p.spaced { margin-top: 1.2rem; text-indent: 0; }
 
-/* don’t indent the very first paragraph  */
-.template-page .body p:first-child{
-  text-indent: 0;
-}
-
-
-/* spaced paragraphs: add top margin, no indent */
-.template-page .body p.spaced{
-  margin-top: 1.2rem;
-  text-indent: 0; /* new section starts flush */
-}
-
-/* capsule-style button (matches your fake-input look) */
-.capsule-btn{
-  display:inline-flex;               /* size to content + nice hover area */
-  align-items:center;
-  gap:.5rem;
-  padding:12px 20px;                 /* capsule padding */
-  border-radius:999px;               /* full pill */
-  background:rgba(0,0,0,.06);        /* same tint as .fake-input */
-  border:1px solid rgba(0,0,0,.12);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.05);
-  color: var(--text);
-  text-decoration:none;
-  font-size:18px;
-  font-weight:600;
-}
-.capsule-btn:hover{ opacity:.9; transform: translateY(-1px); }
-.capsule-btn:active{ transform: translateY(0); }
-
-/* container for CV page images */
+/*==============================================================*/
+/*                          CV PREVIEW
+/*==============================================================*/
+/* Used on the CV page to display PDF pages as images.
+---------------------------------------------------------------*/
 .cv-preview {
   width: min(var(--capsule-w), 80%);
   margin: 0 auto;
-  background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
 }
-
-/* shadow hugs images directly */
 .cv-preview img {
   display: block;
   width: 100%;
   height: auto;
   box-shadow: 0 2px 14px rgba(0,0,0,.15);
 }
+.cv-preview img + img { margin-top: 1em; }
 
-.cv-preview img + img {
-  margin-top: 1em;   /* background gap between pages */
-}
-
-/*__________________ Contact form layout________________________ */
-
-/* Boxy, capsule-inspired text area */
-.message-box{
-  width: 100%;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.12);
-  border-radius: 28px;                 /* boxy—not full pill */
-  padding: 18px 22px;
-  font: 16px/1.5 system-ui, sans-serif;
-  color: var(--text);
-  box-shadow: 0 2px 14px rgba(0,0,0,.15);
-  resize: vertical;
-  outline: none;
-}
-.message-box:focus{
-  box-shadow: 0 4px 18px rgba(0,0,0,.18);
-}
-
-/* Status feedback under the button */
-.status-note{
-  min-height: 1.2em;                  /* reserve space to avoid layout jump */
-  font-size: 15px;
-  opacity: .95;
-}
-
-
-/* Inputs and textarea share the same visual base */
-.input-box,
-.message-box {
-  width: 100%;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.12);
-  border-radius: 24px; /* softer than capsule, still structured */
-  padding: 14px 18px;
-  font: 16px/1.5 system-ui, sans-serif;
-  color: var(--text);
-  box-shadow: 0 2px 10px rgba(0,0,0,.1);
-  outline: none;
-  transition: box-shadow .15s ease;
-}
-
-.input-box:focus,
-.message-box:focus {
-  box-shadow: 0 3px 14px rgba(0,0,0,.15);
-}
-
-/* Form layout */
+/*==============================================================*/
+/*                        CONTACT FORM
+/*==============================================================*/
+/* Formspree-powered contact form with custom styled inputs.
+---------------------------------------------------------------*/
 .contact-form {
   width: min(var(--capsule-w), 85%);
   margin: 0 auto;
@@ -261,15 +233,32 @@ main{
   align-items: center;
 }
 
-/* Status message (feedback below button) */
+/* Shared base style for all inputs and textarea */
+.input-box,
+.message-box {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 24px;
+  padding: 14px 18px;
+  font: 16px/1.5 system-ui, sans-serif;
+  color: var(--text);
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
+  outline: none;
+  transition: box-shadow .15s ease;
+}
+.input-box:focus,
+.message-box:focus { box-shadow: 0 3px 14px rgba(0,0,0,.15); }
+
+/* Larger box for message body */
+.message-box { resize: vertical; min-height: 8rem; }
+
+/* Status feedback text */
 .status-note {
   min-height: 1.2em;
   font-size: 15px;
   opacity: .95;
   text-align: center;
 }
-.status-note.ok { color: var(--text); }
+.status-note.ok  { color: var(--text); }
 .status-note.err { color: #7a2c2c; }
-
-
-

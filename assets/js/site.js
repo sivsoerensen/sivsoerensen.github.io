@@ -27,35 +27,38 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 /*==============================================================*/
-/*  SIVGPT DEMO LOGIC – clears input and shows answer
+/*  SIVGPT LIVE LOGIC – fetch real GPT reply from Vercel API
 /*==============================================================*/
 
 const sivForm   = document.getElementById("sivgpt-form");
 const sivInput  = document.getElementById("sivgpt-input");
-const sivSend   = document.getElementById("sivgpt-send");
 const sivAnswer = document.getElementById("sivgpt-answer");
 
-if (sivForm && sivInput && sivSend && sivAnswer) {
-
-  function showAnswer(text) {
-    sivAnswer.textContent = "SivGPT: " + text;
-    sivAnswer.classList.add("show");
-  }
-
-  function handleSubmit(e) {
+if (sivForm && sivInput && sivAnswer) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const q = sivInput.value.trim();
     if (!q) return;
+
     sivInput.value = "";
     sivAnswer.classList.remove("show");
+    sivAnswer.textContent = "SivGPT is thinking…";
 
-    // simulate thinking delay
-    setTimeout(() => {
-      showAnswer("That’s a great question! (placeholder response for now)");
-    }, 500);
+    try {
+      const res = await fetch("https://sivsoerensen-github-43j5t0gxw-sivs-projects-6719b311.vercel.app/api/sivgpt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: q }),
+      });
+
+      const data = await res.json();
+      sivAnswer.textContent = data.answer || "No response.";
+      sivAnswer.classList.add("show");
+    } catch (err) {
+      sivAnswer.textContent = "Error: " + err.message;
+      sivAnswer.classList.add("show");
+    }
   }
 
   sivForm.addEventListener("submit", handleSubmit);
-  sivSend.addEventListener("click", handleSubmit);
 }
-

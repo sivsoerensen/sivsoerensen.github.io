@@ -1,20 +1,21 @@
 export default async function handler(req, res) {
-  // --- CORS headers ---
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  // Handle preflight
+  // --- Handle non-POSTs and preflight ---
   if (req.method === "OPTIONS") {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     return res.status(200).end();
   }
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  // --- Read raw request body safely (no req.json in Vercel edge) ---
+  let body = "";
+  for await (const chunk of req) body += chunk;
+  const { message } = JSON.parse(body || "{}");
 
   try {
-    // --- Read body safely (no req.json on Vercel) ---
-    let body = "";
-    for await (const chunk of req) body += chunk;
-    const { message } = JSON.parse(body || "{}");
-
     // --- Call OpenAI ---
     const r = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -37,11 +38,18 @@ export default async function handler(req, res) {
 
     const data = await r.json();
 
-    // --- Send back reply ---
-    res
-      .status(200)
-      .json({ answer: data.choices?.[0]?.message?.content || "No reply." });
+    // --- CORS headers for browser access ---
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+    // --- Send response ---
+    res.status(200).json({
+      answer: data.choices?.[0]?.message?.content || "No reply.",
+    });
   } catch (err) {
-    res.status(500).json({ answer: "Error: " + err.message });
+    res.status(500).json({
+      answer: "Error: " + err.message,
+    });
   }
 }

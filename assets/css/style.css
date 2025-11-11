@@ -323,29 +323,45 @@ main {
 }
 
 /*==============================================================*/
-/* 9. SIVGPT INPUT BOX STYLES
+/* 9. IVGPT INPUT BOX STYLES
 /*==============================================================*/
-
+/*
+---------------------------------------------------------------*/
 .sivgpt-box {
   position: relative;
   display: flex;
   justify-content: center;
+  /* 
+    clamp(min, preferred, max)
+    - min = 420px
+    - preferred = 55vw
+    - max = 700px (≈ double the sentence above)
+  */
   width: clamp(420px, 55vw, 700px);
   margin: 2.5rem auto 1.5rem;
+  padding-inline: 5%; /* keeps small side margin at all widths */
+}
+
+.sivgpt-answer {
+  width: clamp(420px, 55vw, 700px);
+  margin: 1.2rem auto 0;
   padding-inline: 5%;
-  transition: none; /* prevent width jump on load */
+  color: var(--text);
+  font: 15px/1.4 ui-monospace, monospace;
+  text-align: left;
+  opacity: 0;
+  transition: opacity .25s ease;
 }
 
 #sivgpt-input {
   width: 100%;
   border: 1px solid rgba(0,0,0,.12);
   border-radius: 999px;
-  padding: 12px 48px 12px 16px;
+  padding: 12px 48px 12px 16px;  /* space for arrow */
   font: 15px/1.4 ui-monospace, monospace;
   color: var(--text);
-  background: rgba(0,0,0,.06);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,.06),
-              0 1px 2px rgba(0,0,0,.05);
+  background: rgba(0,0,0,.06);   /* same as fake-input */
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.05);
 }
 #sivgpt-input::placeholder {
   color: var(--text);
@@ -356,7 +372,7 @@ main {
   border-color: rgba(0,0,0,.2);
 }
 
-/* arrow button (inside capsule) */
+/* arrow button inside capsule (sidebar-colored circle + smooth arrow) */
 #sivgpt-send {
   position: absolute;
   right: 6px;
@@ -365,31 +381,38 @@ main {
   border: none;
   background: none;
   cursor: pointer;
+  padding: 0;
   width: 36px;
   height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
 }
+
 #sivgpt-send svg {
   width: 20px;
   height: 20px;
-  stroke: var(--bg);
-  stroke-width: 2.5;
-  stroke-linecap: round;
+  stroke: var(--bg);          /* beige arrow */
+  stroke-width: 2.5;          /* thinner lines */
+  stroke-linecap: round;      /* rounded ends */
   stroke-linejoin: round;
   fill: none;
   border-radius: 50%;
-  background: var(--text);
+  background: var(--text); /* sidebar-color circle */
   padding: 6px;
   box-sizing: content-box;
   transition: opacity .15s ease, transform .1s ease;
 }
-#sivgpt-send:hover svg { opacity: .85; transform: translateY(-1px); }
-#sivgpt-send:active svg { transform: translateY(0); }
 
-/* Answer text */
+#sivgpt-send:hover svg {
+  opacity: .85;
+  transform: translateY(-1px);
+}
+#sivgpt-send:active svg {
+  transform: translateY(0);
+}
+
+/* Answer text only (no box) */
 .sivgpt-answer {
   width: clamp(420px, 55vw, 700px);
   margin: 1.2rem auto 0;
@@ -404,5 +427,11 @@ main {
 
 @media (max-width: 40em) {
   .sivgpt-box,
-  .sivgpt-answer { width: 90%; }
+  .sivgpt-answer {
+    width: 90%;
+  }
+}
+
+#sivgpt-input, .sivgpt-box {
+  transition: none; /* stops width animation */
 }

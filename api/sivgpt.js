@@ -1,21 +1,22 @@
+// Force Node.js runtime (Edge uses incompatible Request API)
 export const config = {
-  runtime: "nodejs",  // ensures Node.js runtime, not Edge
+  runtime: "nodejs",
 };
 
-
 export default async function handler(req, res) {
-  // --- Handle non-POSTs and preflight ---
+  // --- Handle CORS preflight ---
   if (req.method === "OPTIONS") {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     return res.status(200).end();
   }
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  // --- Read raw request body safely (no req.json in Vercel edge) ---
+  // --- Read body safely ---
   let body = "";
   for await (const chunk of req) body += chunk;
   const { message } = JSON.parse(body || "{}");
@@ -43,18 +44,16 @@ export default async function handler(req, res) {
 
     const data = await r.json();
 
-    // --- CORS headers for browser access ---
+    // --- Allow requests from browser ---
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-    // --- Send response ---
+    // --- Respond ---
     res.status(200).json({
       answer: data.choices?.[0]?.message?.content || "No reply.",
     });
   } catch (err) {
-    res.status(500).json({
-      answer: "Error: " + err.message,
-    });
+    res.status(500).json({ answer: "Error: " + err.message });
   }
 }

@@ -354,7 +354,7 @@ main {
   border-color: rgba(0,0,0,.2);
 }
 
-/* New SVG arrow button inside the capsule */
+/* arrow button inside capsule (sidebar-colored circle + smooth arrow) */
 #sivgpt-send {
   position: absolute;
   right: 6px;
@@ -364,25 +364,28 @@ main {
   background: none;
   cursor: pointer;
   padding: 0;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #sivgpt-send svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   stroke: var(--bg);          /* beige arrow */
-  stroke-width: 4;            /* thicker lines */
-  fill: var(--text);          /* green body */
+  stroke-width: 2.5;          /* thinner lines */
+  stroke-linecap: round;      /* rounded ends */
+  stroke-linejoin: round;
+  fill: none;
   border-radius: 50%;
-  background: var(--text);    /* green circle */
-  padding: 4px;
+  background: var(--sidebar); /* sidebar-color circle */
+  padding: 6px;
   box-sizing: content-box;
   transition: opacity .15s ease, transform .1s ease;
 }
+
 #sivgpt-send:hover svg {
   opacity: .85;
   transform: translateY(-1px);

@@ -329,60 +329,75 @@ main {
 ---------------------------------------------------------------*/
 
 .sivgpt-box {
+  position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: .5rem;
+  width: min(calc(var(--capsule-w) * 1.3), 95%);
   margin: 2.5rem auto 1.5rem;
-  width: min(var(--capsule-w), 95%);
 }
 
-/* Input looks like the fake-input capsule */
 #sivgpt-input {
-  flex: 1;
+  width: 100%;
   border: 1px solid rgba(0,0,0,.12);
   border-radius: 999px;
-  padding: 12px 16px;
+  padding: 12px 48px 12px 16px;  /* right padding makes space for arrow */
   font: 15px/1.4 ui-monospace, monospace;
   color: var(--text);
-  background: rgba(255,255,255,.4);
+  background: rgba(0,0,0,.06);   /* same as fake-input */
   box-shadow: inset 0 1px 2px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.05);
+}
+#sivgpt-input::placeholder {
+  color: var(--text);
+  opacity: .7;
 }
 #sivgpt-input:focus {
   outline: none;
-  border-color: rgba(0,0,0,.25);
-  background: rgba(255,255,255,.6);
+  border-color: rgba(0,0,0,.2);
 }
 
-/* Arrow button uses text color for outline harmony */
+/* arrow button inside capsule */
 #sivgpt-send {
-  background: rgba(0,0,0,.06);
-  border: 1px solid rgba(0,0,0,.12);
-  color: var(--text);
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
   border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  background: var(--text);           /* same green as text */
+  color: var(--bg);                  /* beige background color for arrow */
+  font-size: 18px;
   font-weight: 700;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.05);
   transition: opacity .15s ease, transform .1s ease;
 }
-#sivgpt-send:hover {
-  opacity: .85;
-  transform: translateY(-1px);
-}
-#sivgpt-send:active { transform: translateY(0); }
+#sivgpt-send:hover { opacity: .85; transform: translateY(-52%); }
+#sivgpt-send:active { transform: translateY(-50%); }
 
-/* Answer line: same width rhythm, green text */
+/* Answer text: same width, now visually a capsule 'block' */
 .sivgpt-answer {
-  width: min(var(--capsule-w), 95%);
-  margin: 1rem auto 0;
+  width: min(calc(var(--capsule-w) * 1.3), 95%);
+  margin: 1.2rem auto 0;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: rgba(0,0,0,.04);
   color: var(--text);
   text-align: left;
   font-size: 16px;
+  line-height: 1.55;
   opacity: 0;
   transition: opacity .25s ease;
 }
 .sivgpt-answer.show { opacity: 1; }
+
+@media (max-width: 40em) {
+  .sivgpt-box,
+  .sivgpt-answer {
+    width: 90%;
+  }
+}

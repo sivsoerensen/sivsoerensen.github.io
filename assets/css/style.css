@@ -380,7 +380,7 @@ main {
   stroke-linejoin: round;
   fill: none;
   border-radius: 50%;
-  background: var(--sidebar); /* sidebar-color circle */
+  background: var(--text); /* sidebar-color circle */
   padding: 6px;
   box-sizing: content-box;
   transition: opacity .15s ease, transform .1s ease;
@@ -411,4 +411,8 @@ main {
   .sivgpt-answer {
     width: 90%;
   }
+}
+
+#sivgpt-input, .sivgpt-box {
+  transition: none; /* stops width animation */
 }

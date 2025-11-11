@@ -1,3 +1,8 @@
+export const config = {
+  runtime: "nodejs",  // ensures Node.js runtime, not Edge
+};
+
+
 export default async function handler(req, res) {
   // --- Handle non-POSTs and preflight ---
   if (req.method === "OPTIONS") {

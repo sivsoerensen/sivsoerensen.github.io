@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<body>
+<script>
+fetch('/api/sivgpt', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({message: 'Hello from test!'})
+})
+  .then(r => r.json())
+  .then(d => document.body.innerText = JSON.stringify(d))
+  .catch(e => document.body.innerText = e);
+</script>
+</body>
+</html>

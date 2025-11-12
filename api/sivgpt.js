@@ -42,6 +42,8 @@ export default async function handler(req, res) {
       }),
     });
 
+    console.log("OpenAI status:", r.status);
+
     const data = await r.json();
 
     // --- Allow requests from browser ---

@@ -16,6 +16,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // --- Debug: confirm environment variable loaded ---
+  console.log("Has API key?", !!process.env.OPENAI_API_KEY);
+
   // --- Read body safely ---
   let body = "";
   for await (const chunk of req) body += chunk;

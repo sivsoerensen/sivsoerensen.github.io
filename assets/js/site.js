@@ -45,7 +45,7 @@ if (sivForm && sivInput && sivAnswer) {
     sivAnswer.textContent = "SivGPT is thinking…";
 
     try {
-      const res = await fetch("https://sivsoerensen-github-43j5t0gxw-sivs-projects-6719b311.vercel.app/api/sivgpt", {
+      const res = await fetch("/api/sivgpt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: q }),

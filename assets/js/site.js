@@ -1,3 +1,5 @@
+console.log("site.js v3 loaded from", window.location.origin);
+
 // assets/js/site.js
 document.addEventListener('DOMContentLoaded', async () => {
   // 1) Load sidebar partial into #sidebar

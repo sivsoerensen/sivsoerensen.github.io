@@ -50,8 +50,9 @@ if (sivForm && sivInput && sivAnswer) {
       const apiUrl =
         window.location.hostname.includes("vercel.app") ||
         window.location.hostname.includes("sivsoerensen.com")
-          ? "https://sivsoerensen-github-io.vercel.app/api/sivgpt"
+          ? "https://sivsoerensen-github-n74ftzn1a-sivs-projects-6719b311.vercel.app/api/sivgpt"
           : "/api/sivgpt";
+
 
       const res = await fetch(apiUrl, {
         method: "POST",

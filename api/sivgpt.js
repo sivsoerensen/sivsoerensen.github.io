@@ -28,9 +28,11 @@ export default async function handler(req, res) {
     // --- Call OpenAI ---
     const r = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        "OpenAI-Project": "proj_t93Jq6VD4TaGZnivAtlVZibo", 
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",

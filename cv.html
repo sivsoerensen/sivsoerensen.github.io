@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV — Siv Sørensen</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=2">
+  <title>CV – Siv Sørensen</title>
+  <script>
+    fetch("partials/head.html")
+      .then(r => r.text())
+      .then(html => document.head.innerHTML += html);
+  </script>
 </head>
 <body>
   <div id="sidebar"></div>

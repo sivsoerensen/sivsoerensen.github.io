@@ -1,42 +1,36 @@
 console.log("site.js v3 loaded from", window.location.origin);
 
-// === Load head partial and fade in ===
-(async function loadHead() {
-  const html = await fetch("partials/head.html").then(r => r.text());
-  document.head.innerHTML += html;
-  // after CSS + head is loaded → fade in
-  document.body.classList.add("loaded");
-})();
+(async function loadEverything() {
+  // 1) Load head partial
+  const headHtml = await fetch("partials/head.html").then(r => r.text());
+  document.head.innerHTML += headHtml;
 
-
-// assets/js/site.js
-document.addEventListener('DOMContentLoaded', async () => {
-  // 1) Load sidebar
+  // 2) Load sidebar
   const host = document.getElementById('sidebar');
   if (host) {
-    const html = await fetch('partials/sidebar.html').then(r => r.text());
-    host.innerHTML = html;
+    const sidebarHtml = await fetch('partials/sidebar.html').then(r => r.text());
+    host.innerHTML = sidebarHtml;
   }
 
-  // 2) Hamburger
+  // 3) Create menu button
   const btn = document.createElement('button');
   btn.id = 'menu-toggle';
   btn.setAttribute('aria-label', 'Toggle menu');
   btn.innerHTML = '&#9776;';
   document.body.appendChild(btn);
 
-  // 3) Toggle logic
+  // 4) Menu toggle logic
   btn.addEventListener('click', () => {
     host.classList.toggle('active');
   });
 
-  // 4) Close on nav click
   document.addEventListener('click', (e) => {
     if (e.target.closest('#sidebar .nav a')) host.classList.remove('active');
   });
 
-});
-
+  // 5) Fade in now everything is ready
+  document.body.classList.add("loaded");
+})();
 
 
 /*==============================================================*/

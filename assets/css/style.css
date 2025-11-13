@@ -2,7 +2,7 @@
 /*                         STYLE INDEX
 /*==============================================================*/
 /*
-  1. GLOBAL DESIGN ......................... Variables (colors, spacing, fonts)
+  1. GLOBAL DESIGN .......................... Variables (colors, spacing, fonts)
   2. LAYOUT ................................ Grid structure, sidebar, main area
   3. HERO SECTION .......................... Homepage hero title/subtitle
   4. SIDEBAR NAVIGATION .................... Navigation and footer styles
@@ -20,8 +20,6 @@
 /* Defines global variables for color palette, sizing, and layout.
    Used consistently across all pages to maintain a coherent style.
 ---------------------------------------------------------------*/
-
-
 :root {
   --sidebar-w: 400px;
   --bg:        #D6D0CA;  /* main (right) background */
@@ -80,26 +78,6 @@ main {
   align-items: center;
   font-size: 2rem;
 }
-
-#corner-logo {
-  position: fixed;
-  top: 1.2rem;
-  right: 1.2rem;
-  width: 32px;           /* 30% smaller */
-  height: auto;
-  opacity: 0.9;
-  z-index: 2000;
-  cursor: pointer;
-  filter: invert(61%) sepia(12%) saturate(350%) hue-rotate(45deg)
-          brightness(90%) contrast(90%);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-#corner-logo:hover {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-
 
 /*==============================================================*/
 /*                           HERO SECTION

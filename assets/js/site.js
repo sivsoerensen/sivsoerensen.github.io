@@ -1,42 +1,31 @@
-console.log("site.js loaded from", window.location.origin);
+console.log("site.js v3 loaded from", window.location.origin);
 
-// LOAD EVERYTHING
-(async function () {
-
-  // hide until ready
-  document.body.style.opacity = "0";
-
-  // 1) Load head.html
-  const headHtml = await fetch("partials/head.html").then(r => r.text());
-  document.head.insertAdjacentHTML("beforeend", headHtml);
-
-  // 2) Load sidebar.html
-  const sidebarDiv = document.getElementById("sidebar");
-  if (sidebarDiv) {
-    const sidebarHtml = await fetch("partials/sidebar.html").then(r => r.text());
-    sidebarDiv.innerHTML = sidebarHtml;
+// assets/js/site.js
+document.addEventListener('DOMContentLoaded', async () => {
+  // 1) Load sidebar partial into #sidebar
+  const host = document.getElementById('sidebar');
+  if (host) {
+    const html = await fetch('partials/sidebar.html').then(r => r.text());
+    host.innerHTML = html;
   }
 
-  // 3) Insert menu button
-  const button = document.createElement("button");
-  button.id = "menu-toggle";
-  button.setAttribute("aria-label", "Toggle menu");
-  button.innerHTML = "&#9776;";
-  document.body.appendChild(button);
+  // 2) Inject hamburger once (no per-page markup)
+  const btn = document.createElement('button');
+  btn.id = 'menu-toggle';
+  btn.setAttribute('aria-label', 'Toggle menu');
+  btn.innerHTML = '&#9776;';
+  document.body.appendChild(btn);
 
-  // 4) Toggle sidebar
-  button.addEventListener("click", () => {
-    sidebarDiv.classList.toggle("active");
+  // 3) Toggle logic
+  btn.addEventListener('click', () => {
+    host.classList.toggle('active');
   });
 
-  document.addEventListener("click", e => {
-    if (e.target.closest("#sidebar .nav a")) sidebarDiv.classList.remove("active");
+  // 4) Close on nav click
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('#sidebar .nav a')) host.classList.remove('active');
   });
-
-  // 5) Fade in
-  document.body.style.transition = "opacity 0.001s";
-  document.body.style.opacity = "1";
-})();
+});
 
 
 /*==============================================================*/

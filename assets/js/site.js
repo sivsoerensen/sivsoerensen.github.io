@@ -25,7 +25,7 @@ console.log("site.js v3 loaded from", window.location.origin);
   });
 
   // 5) Fade in now everything is ready
-  document.body.classList.add("loaded");
+  // document.body.classList.add("loaded");
 })();
 
 

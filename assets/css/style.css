@@ -20,21 +20,6 @@
 /* Defines global variables for color palette, sizing, and layout.
    Used consistently across all pages to maintain a coherent style.
 ---------------------------------------------------------------*/
-body * {
-  visibility: hidden;
-}
-body.loaded * {
-  visibility: visible;
-}
-
-body {
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-body.loaded {
-  opacity: 1;
-}
 
 
 :root {

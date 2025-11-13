@@ -1,32 +1,53 @@
-console.log("site.js v3 loaded from", window.location.origin);
+console.log("site.js v4 loaded from", window.location.origin);
 
-// assets/js/site.js
-document.addEventListener('DOMContentLoaded', async () => {
-  // 1) Load sidebar partial into #sidebar
-  const host = document.getElementById('sidebar');
-  if (host) {
-    const html = await fetch('partials/sidebar.html').then(r => r.text());
-    host.innerHTML = html;
-  }
-
-  // 2) Inject hamburger once (no per-page markup)
-  const btn = document.createElement('button');
-  btn.id = 'menu-toggle';
-  btn.setAttribute('aria-label', 'Toggle menu');
-  btn.innerHTML = '&#9776;';
-  document.body.appendChild(btn);
-
-  // 3) Toggle logic
-  btn.addEventListener('click', () => {
-    host.classList.toggle('active');
-  });
-
-  // 4) Close on nav click
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('#sidebar .nav a')) host.classList.remove('active');
-  });
+// === Load shared head + sidebar, then fade in site ===
+Promise.all([
+  fetch("partials/head.html")
+    .then(r => r.text())
+    .then(html => document.head.insertAdjacentHTML("beforeend", html)),
+  fetch("partials/sidebar.html")
+    .then(r => r.text())
+    .then(html => {
+      const sidebar = document.getElementById("sidebar");
+      if (sidebar) sidebar.innerHTML = html;
+    })
+]).then(() => {
+  document.body.classList.add("loaded");
+  initGlobalUI();   // initialize logo, menu, etc., once everything is ready
 });
 
+// === Initialize global UI elements (runs after load) ===
+function initGlobalUI() {
+
+  /*--------------------------------------------*/
+  /* Hamburger menu setup                      */
+  /*--------------------------------------------*/
+  const host = document.getElementById("sidebar");
+  if (host) {
+    const btn = document.createElement("button");
+    btn.id = "menu-toggle";
+    btn.setAttribute("aria-label", "Toggle menu");
+    btn.innerHTML = "&#9776;";
+    document.body.appendChild(btn);
+
+    btn.addEventListener("click", () => host.classList.toggle("active"));
+    document.addEventListener("click", (e) => {
+      if (e.target.closest("#sidebar .nav a")) host.classList.remove("active");
+    });
+  }
+
+  /*--------------------------------------------*/
+  /* Corner logo setup                         */
+  /*--------------------------------------------*/
+  const logo = document.createElement("img");
+  logo.src = "assets/favicon/ss_logo_white.png";
+  logo.alt = "Logo";
+  logo.id = "corner-logo";
+  logo.addEventListener("click", () => (window.location.href = "index.html"));
+  document.body.appendChild(logo);
+
+  console.log("UI initialized");
+}
 
 /*==============================================================*/
 /*  SIVGPT LIVE LOGIC – fetch real GPT reply from Vercel API
@@ -53,7 +74,6 @@ if (sivForm && sivInput && sivAnswer) {
           ? "https://sivsoerensen-github-n74ftzn1a-sivs-projects-6719b311.vercel.app/api/sivgpt"
           : "/api/sivgpt";
 
-
       const res = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -71,16 +91,3 @@ if (sivForm && sivInput && sivAnswer) {
 
   sivForm.addEventListener("submit", handleSubmit);
 }
-
-// === Global corner logo (added automatically on all pages) ===
-document.addEventListener("DOMContentLoaded", () => {
-  const logo = document.createElement("img");
-  logo.src = "assets/favicon/ss_logo_white.png";   // adjust if your logo path differs
-  logo.alt = "Logo";
-  logo.id = "corner-logo";
-  logo.addEventListener("click", () => {
-    window.location.href = "index.html";           // make it a Home button
-  });
-  document.body.appendChild(logo);
-});
-

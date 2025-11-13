@@ -32,6 +32,23 @@ body.loaded {
   opacity: 1;
 }
 
+/* Subtle upward fade for main content */
+body.loaded main,
+body.loaded .template-page {
+  animation: fadeUp 0.6s ease-out both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 :root {
   --sidebar-w: 400px;
   --bg:        #D6D0CA;  /* main (right) background */

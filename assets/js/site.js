@@ -2,14 +2,14 @@ console.log("site.js v3 loaded from", window.location.origin);
 
 // assets/js/site.js
 document.addEventListener('DOMContentLoaded', async () => {
-  // 1) Load sidebar partial into #sidebar
+  // 1) Load sidebar
   const host = document.getElementById('sidebar');
   if (host) {
     const html = await fetch('partials/sidebar.html').then(r => r.text());
     host.innerHTML = html;
   }
 
-  // 2) Inject hamburger once (no per-page markup)
+  // 2) Hamburger
   const btn = document.createElement('button');
   btn.id = 'menu-toggle';
   btn.setAttribute('aria-label', 'Toggle menu');
@@ -25,7 +25,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.addEventListener('click', (e) => {
     if (e.target.closest('#sidebar .nav a')) host.classList.remove('active');
   });
+
+  document.body.classList.add("loaded");
 });
+
 
 
 /*==============================================================*/

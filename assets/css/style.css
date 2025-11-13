@@ -31,22 +31,6 @@ body.loaded {
   opacity: 1;
 }
 
-/* Subtle fade for main content only (no movement) */
-body.loaded main,
-body.loaded .template-page {
-  animation: fadeSoft 0.8s ease-out both;
-}
-
-@keyframes fadeSoft {
-  from { opacity: 0.92; }
-  to   { opacity: 1; }
-}
-
-/* Prevent horizontal overflow on mobile */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
 
 *//*==============================================================*/
 /*                         GLOBAL DESIGN

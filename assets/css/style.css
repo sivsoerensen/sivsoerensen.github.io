@@ -18,18 +18,6 @@
 /* GLOBAL VISIBILITY + FADE-IN SETUP */
 /*==============================================================*/
 
-/* Gentle fade */
-body {
-  visibility: hidden;
-  opacity: 0.97;               /* almost visible immediately */
-  transition: opacity 0.9s ease-out;   /* slower, softer */
-}
-
-body.loaded {
-  visibility: visible;
-  opacity: 1;
-}
-
 
 /*==============================================================*/
 /*                         GLOBAL DESIGN

@@ -2,6 +2,7 @@
 /*                         STYLE INDEX
 /*==============================================================*/
 /*
+  0. GLOBAL VISIBILITY + FADE-IN SETUP ..... Initial hide and fade-in animation
   1. GLOBAL DESIGN ......................... Variables (colors, spacing, fonts)
   2. LAYOUT ................................ Grid structure, sidebar, main area
   3. HERO SECTION .......................... Homepage hero title/subtitle
@@ -13,6 +14,39 @@
   9. RESPONSIVE MOBILE MENU ................ Mobile menu toggle and sidebar
   10. SIVGPT INPUT BOX STYLES .............. Custom input box and button
 
+/*==============================================================*/
+/* GLOBAL VISIBILITY + FADE-IN SETUP */
+/*==============================================================*/
+
+/* Hidden initially (inline <style> ensures instant hide) */
+body {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* When site.js marks page ready */
+body.loaded {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Subtle fade for main content only (no movement) */
+body.loaded main,
+body.loaded .template-page {
+  animation: fadeSoft 0.8s ease-out both;
+}
+
+@keyframes fadeSoft {
+  from { opacity: 0.92; }
+  to   { opacity: 1; }
+}
+
+/* Prevent horizontal overflow on mobile */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 *//*==============================================================*/
 /*                         GLOBAL DESIGN
@@ -20,23 +54,6 @@
 /* Defines global variables for color palette, sizing, and layout.
    Used consistently across all pages to maintain a coherent style.
 ---------------------------------------------------------------*/
-
-/* Prevent flash of unstyled content (FOUC) */
-body {
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-/* Subtle fade-in for main content (no movement) */
-body.loaded main,
-body.loaded .template-page {
-  animation: fadeSoft 0.6s ease-out both;
-}
-
-@keyframes fadeSoft {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 
 :root {
   --sidebar-w: 400px;

@@ -18,14 +18,13 @@
 /* GLOBAL VISIBILITY + FADE-IN SETUP */
 /*==============================================================*/
 
-/* Hidden initially (inline <style> ensures instant hide) */
+/* Gentle fade */
 body {
   visibility: hidden;
-  opacity: 0.8;
-  transition: opacity 0.45s ease;
+  opacity: 0.97;               /* almost visible immediately */
+  transition: opacity 0.9s ease-out;   /* slower, softer */
 }
 
-/* When site.js marks page ready */
 body.loaded {
   visibility: visible;
   opacity: 1;

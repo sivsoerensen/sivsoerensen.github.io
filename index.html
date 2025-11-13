@@ -3,6 +3,15 @@
 
 <head>
   <title>Siv Sørensen</title>
+
+  <script>
+    document.write(
+      fetch("partials/head.html")
+        .then(r => r.text())
+        .then(t => t)
+        .catch(() => "")
+    );
+  </script>
 </head>
 
 <body>

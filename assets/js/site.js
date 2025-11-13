@@ -1,10 +1,6 @@
 console.log("site.js v3 loaded from", window.location.origin);
 
 (async function loadEverything() {
-  // 1) Load head partial
-  const headHtml = await fetch("partials/head.html").then(r => r.text());
-  document.head.innerHTML += headHtml;
-
   // 2) Load sidebar
   const host = document.getElementById('sidebar');
   if (host) {

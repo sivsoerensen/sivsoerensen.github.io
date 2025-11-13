@@ -71,3 +71,16 @@ if (sivForm && sivInput && sivAnswer) {
 
   sivForm.addEventListener("submit", handleSubmit);
 }
+
+// === Global corner logo (added automatically on all pages) ===
+document.addEventListener("DOMContentLoaded", () => {
+  const logo = document.createElement("img");
+  logo.src = "assets/favicon/ss_logo_white.png";   // adjust if your logo path differs
+  logo.alt = "Logo";
+  logo.id = "corner-logo";
+  logo.addEventListener("click", () => {
+    window.location.href = "index.html";           // make it a Home button
+  });
+  document.body.appendChild(logo);
+});
+

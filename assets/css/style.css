@@ -20,6 +20,18 @@
 /* Defines global variables for color palette, sizing, and layout.
    Used consistently across all pages to maintain a coherent style.
 ---------------------------------------------------------------*/
+
+/* Prevent flash of unstyled content (FOUC) */
+body {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+body.loaded {
+  visibility: visible;
+  opacity: 1;
+}
+
 :root {
   --sidebar-w: 400px;
   --bg:        #D6D0CA;  /* main (right) background */

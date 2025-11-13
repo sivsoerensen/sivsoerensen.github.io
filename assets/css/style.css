@@ -82,8 +82,8 @@ main {
 #corner-logo {
   position: fixed;
   top: 1.2rem;
-  right: 1.8rem;
-  width: 28px;           /* 30% smaller */
+  right: 1.2rem;
+  width: 32px;           /* 30% smaller */
   height: auto;
   opacity: 0.9;
   z-index: 2000;

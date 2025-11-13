@@ -97,7 +97,12 @@ main {
   opacity: 0.9;
   z-index: 2000;
   cursor: pointer;
-  color: var(--text);  /* key line */
+
+  mask: url("assets/logo.png") no-repeat center / contain;
+  -webkit-mask: url("assets/logo.png") no-repeat center / contain;
+
+  background-color: var(--text);  /* EXACT color match */
+  opacity: 0.9;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 #corner-logo:hover {

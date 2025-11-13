@@ -92,23 +92,34 @@ main {
   position: fixed;
   top: 1.2rem;
   right: 1.2rem;
-  width: 32px;           /* 30% smaller */
-  height: auto;
-  opacity: 0.9;
+  width: 32px;
+  height: 32px;
   z-index: 2000;
   cursor: pointer;
 
-  mask: url("assets/logo.png") no-repeat center / contain;
-  -webkit-mask: url("assets/logo.png") no-repeat center / contain;
+  mask-image: url("assets/favicon/ss_logo_white.png");
+  -webkit-mask-image: url("assets/favicon/ss_logo_white.png");
 
-  background-color: var(--text);  /* EXACT color match */
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+
+  mask-size: contain;
+  -webkit-mask-size: contain;
+
+  mask-position: center;
+  -webkit-mask-position: center;
+
+  background-color: var(--text);  /* EXACT color */
   opacity: 0.9;
+
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
+
 #corner-logo:hover {
   opacity: 1;
   transform: scale(1.05);
 }
+
 
 
 

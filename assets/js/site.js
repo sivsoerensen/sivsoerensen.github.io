@@ -39,12 +39,11 @@ function initGlobalUI() {
   /*--------------------------------------------*/
   /* Corner logo setup                         */
   /*--------------------------------------------*/
-  const logo = document.createElement("img");
-  logo.src = "assets/favicon/ss_logo_white.png";
-  logo.alt = "Logo";
+  const logo = document.createElement("div");
   logo.id = "corner-logo";
   logo.addEventListener("click", () => (window.location.href = "index.html"));
   document.body.appendChild(logo);
+
 
   console.log("UI initialized");
 }

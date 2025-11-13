@@ -45,7 +45,8 @@ body {
   margin: 0;
   display: grid;
   grid-template-columns: var(--sidebar-w) 1fr;
-  height: 100vh;
+  min-height: 100vh;   /* ← replaces height:100vh, fixes Safari */
+  height: auto;        /* ← ensures natural height wins */
   font-family: system-ui, sans-serif;
   color: var(--text);
 }
@@ -80,6 +81,7 @@ body {
 main {
   background: var(--bg);
   display: flex;
+  flex-direction: column;  /* ensures vertical layout */
   justify-content: center;
   align-items: center;
   font-size: 2rem;

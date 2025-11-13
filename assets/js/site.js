@@ -2,12 +2,8 @@ console.log("site.js v3 loaded from", window.location.origin);
 
 // === Load head partial and fade in ===
 (async function loadHead() {
-  // keep body hidden until head + CSS is added
-  document.body.style.opacity = "0";
-
   const html = await fetch("partials/head.html").then(r => r.text());
   document.head.innerHTML += html;
-
   // after CSS + head is loaded → fade in
   document.body.classList.add("loaded");
 })();

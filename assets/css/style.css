@@ -97,8 +97,7 @@ main {
   opacity: 0.9;
   z-index: 2000;
   cursor: pointer;
-  filter: invert(61%) sepia(12%) saturate(350%) hue-rotate(45deg)
-          brightness(90%) contrast(90%);
+  color: var(--text);  /* key line */
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 #corner-logo:hover {

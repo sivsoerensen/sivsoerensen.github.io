@@ -18,6 +18,19 @@
 /* GLOBAL VISIBILITY + FADE-IN SETUP */
 /*==============================================================*/
 
+/* Hidden initially (inline <style> ensures instant hide) */
+body {
+  visibility: hidden;
+  opacity: 0.8;
+  transition: opacity 0.45s ease;
+}
+
+/* When site.js marks page ready */
+body.loaded {
+  visibility: visible;
+  opacity: 1;
+}
+
 
 /*==============================================================*/
 /*                         GLOBAL DESIGN
